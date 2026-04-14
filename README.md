@@ -20,5 +20,4 @@ EcoFriend is an AI-powered assistant designed to guide users on how to dispose o
 
 ## Clone repository (GitHub)
 1. Clone the repository:
-   ```bash
-   git clone [https://github.com/danielcar74/ecofriend.git](https://github.com/danielcar74/ecofriend.git)
+[https://github.com/danielcar74/ecofriend.git](https://github.com/danielcar74/ecofriend.git)
