@@ -42,7 +42,7 @@ def responder_usuario(pergunta_usuario):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": pergunta_usuario},
         ],
-        model="llama3-8b-8192", # Modelo rápido e gratuito da Groq
+        model="llama-3.1-8b-instant", # Modelo rápido e gratuito da Groq
         temperature=0.5, # Menor criatividade, maior precisão
     )
     return chat_completion.choices[0].message.content
