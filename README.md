@@ -1,6 +1,6 @@
-# EcoFriend Chatbot 🌿
+# EcoFriend Chatbot
 
-A technical prototype developed as part of a University Extension Project focused on **Environmental Education** and **Proper Waste Disposal**.
+This prototype software was developed as part of a University Extension Project focused on **Environmental Education** and **Proper Waste Disposal**. Language used is portuguese.
 
 ## Overview
 EcoFriend is an AI-powered assistant designed to guide users on how to dispose of different types of waste correctly. It uses the **Llama 3.1** model via **Groq API** to provide fast and accurate responses based on a curated knowledge base.
