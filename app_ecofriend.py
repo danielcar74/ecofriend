@@ -65,13 +65,13 @@ for message in st.session_state.messages:
     # with st.chat_message("user"):
         # st.markdown(prompt)
 
-    Gera a resposta da IA
+    # Gera a resposta da IA
     # with st.chat_message("assistant"):
         # with st.spinner("Consultando guia de descarte..."):
             # resposta = responder_usuario(prompt)
             # st.markdown(resposta)
     
-    Adiciona resposta da IA ao histórico
+    # Adiciona resposta da IA ao histórico
     # st.session_state.messages.append({"role": "assistant", "content": resposta})
     
 # --- LÓGICA DE BUSCA HÍBRIDA ---
