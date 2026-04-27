@@ -60,7 +60,7 @@ for message in st.session_state.messages:
 
 # Captura a entrada do usuário
 # if prompt := st.chat_input("Como descarto um pneu velho?"):
-    Adiciona mensagem do usuário ao histórico
+    #Adiciona mensagem do usuário ao histórico
     # st.session_state.messages.append({"role": "user", "content": prompt})
     # with st.chat_message("user"):
         # st.markdown(prompt)
