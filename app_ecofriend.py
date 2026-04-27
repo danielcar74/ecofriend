@@ -100,7 +100,6 @@ if prompt := st.chat_input("O que deseja descartar?"):
     
     st.session_state.messages.append({"role": "assistant", "content": resposta})
     
-    
 
 # Barra lateral com informações de extensão
 with st.sidebar:
