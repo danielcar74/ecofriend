@@ -46,6 +46,7 @@ def responder_usuario(pergunta_usuario):
         temperature=0.5, # Menor criatividade, maior precisão
     )
     return chat_completion.choices[0].message.content
+    
 
 # --- INTERFACE DO USUÁRIO (STREAMLIT) ---
 # Inicializa o histórico de chat
@@ -58,22 +59,50 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Captura a entrada do usuário
-if prompt := st.chat_input("Como descarto um pneu velho?"):
-    # Adiciona mensagem do usuário ao histórico
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
+# if prompt := st.chat_input("Como descarto um pneu velho?"):
+    Adiciona mensagem do usuário ao histórico
+    # st.session_state.messages.append({"role": "user", "content": prompt})
+    # with st.chat_message("user"):
+        # st.markdown(prompt)
 
-    # Gera a resposta da IA
+    Gera a resposta da IA
+    # with st.chat_message("assistant"):
+        # with st.spinner("Consultando guia de descarte..."):
+            # resposta = responder_usuario(prompt)
+            # st.markdown(resposta)
+    
+    Adiciona resposta da IA ao histórico
+    # st.session_state.messages.append({"role": "assistant", "content": resposta})
+    
+# --- LÓGICA DE BUSCA HÍBRIDA ---
+
+def buscar_solucao_ecofriend(pergunta):
+    # 1. Busca Simples no JSON (Case Insensitive)
+    # Transforma a pergunta em minúsculas para bater com as chaves do JSON
+    pergunta_clean = pergunta.lower().strip()
+    
+    if pergunta_clean in base_conhecimento:
+        return f"✅ **Fonte Local:** {base_conhecimento[pergunta_clean]}"
+    
+    # 2. Se não estiver no JSON, o Groq assume o papel de Especialista
+    else:
+        return responder_usuario(pergunta) # Chama a função que usa o Groq
+
+# --- NA INTERFACE DO USUÁRIO ---
+if prompt := st.chat_input("O que deseja descartar?"):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
     with st.chat_message("assistant"):
-        with st.spinner("Consultando guia de descarte..."):
-            resposta = responder_usuario(prompt)
+        with st.spinner("Analisando..."):
+            # AQUI usamos a lógica híbrida
+            resposta = buscar_solucao_ecofriend(prompt)
             st.markdown(resposta)
     
-    # Adiciona resposta da IA ao histórico
     st.session_state.messages.append({"role": "assistant", "content": resposta})
+    
+    
 
 # Barra lateral com informações de extensão
 with st.sidebar:
     st.markdown("### Sobre o Projeto")
-    st.info("Este é um projeto de Extensão Universitária do curso de Ciência da Computação. O objetivo é promover a Educação Ambiental e o ODS 13 (Ação Climática).")
+    st.info("Este é um projeto de Daniel Graziano de Carvalho para a disciplina de Extensão Universitária, do curso de Ciência da Computação. O objetivo é promover a Educação Ambiental")
